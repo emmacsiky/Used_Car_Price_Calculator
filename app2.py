@@ -5,14 +5,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split, cross_val_score
 import streamlit as st
 
-### Theme ####
 
-[theme]
-primaryColor = "#575fe8"
-backgroundColor = "#f5f7f3"
-secondaryBackgroundColor = "#c9eab8"
-textColor = "#262730"
-font = "sans serif"
 
 
 #### Page Config ###
