@@ -66,10 +66,6 @@ st.table(df.sample(5, random_state=18))
 
 #---------------------------------------------------------------------------------------------------------------------
 
-### Sidebar Markdown ###
-st.sidebar.markdown("**INPUT** the features of Car below to see the **PRICE!**")
-
-### Define Sidebar Input's ###
 car_make_options = ['Fiat', 'Ford', 'Renault', 'Toyota', 'Volkswagen']
 gear_options = ['Manuel Gear', 'Automatic Gear', 'Semi-Auto Gear']
 fuel_options = ['Benzin', 'Diesel', 'Hybrid', 'Benzin&LPG']
@@ -80,21 +76,24 @@ Hp = st.sidebar.number_input("**Power of Engine.**", min_value=0)
 Fuel_Consumption = st.sidebar.number_input("**Numeric value of consumption**.", min_value=0)
 Age = st.sidebar.number_input("**Age of the car**.", min_value=0)
 
-Fiat = st.sidebar.selectbox("Car Make (Fiat)", [0, 1])
-Ford = st.sidebar.selectbox("Car Make (Ford)", [0, 1])
-Renault = st.sidebar.selectbox("Car Make (Renault)", [0, 1])
-Toyota = st.sidebar.selectbox("Car Make (Toyota)", [0, 1])
-Volkswagen = st.sidebar.selectbox("Car Make (Volkswagen)", [0, 1])
+Brands = st.sidebar.selectbox("Car Make", car_make_options)
+Fiat = 1 if Brands == "Fiat" else 0
+Ford = 1 if Brands == "Ford" else 0
+Renault = 1 if Brands == "Renault" else 0
+Toyota = 1 if Brands == "Toyota" else 0
+Volkswagen = 1 if Brands == "Volkswagen" else 0
 
-Manuel = st.sidebar.selectbox("Gear Type (Manuel)", [0, 1])
-Automatic = st.sidebar.selectbox("Gear Type (Automatic)", [0, 1])
-Semi_Automatic = st.sidebar.selectbox("Gear Type (Semi-Auto)", [0, 1])
+gear_type = st.sidebar.selectbox("Gear Type", gear_options)
+Manuel = 1 if gear_type == "Manuel Gear" else 0
+Automatic = 1 if gear_type == "Automatic Gear" else 0
+Semi_Automatic = 1 if gear_type == "Semi-Auto Gear" else 0
 
 fuel_type = st.sidebar.selectbox("Fuel Type", fuel_options)
 Benzin = 1 if fuel_type == "Benzin" else 0
 Diesel = 1 if fuel_type == "Diesel" else 0
 Hybrid = 1 if fuel_type == "Hybrid" else 0
 Benzin_LPG = 1 if fuel_type == "Benzin&LPG" else 0
+
 
 #---------------------------------------------------------------------------------------------------------------------
 
