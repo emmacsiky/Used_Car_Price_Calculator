@@ -70,24 +70,31 @@ st.table(df.sample(5, random_state=18))
 st.sidebar.markdown("**INPUT** the features of Car below to see the **PRICE!**")
 
 ### Define Sidebar Input's ###
+car_make_options = ['Fiat', 'Ford', 'Renault', 'Toyota', 'Volkswagen']
+gear_options = ['Manuel Gear', 'Automatic Gear', 'Semi-Auto Gear']
+fuel_options = ['Benzin', 'Diesel', 'Hybrid', 'Benzin&LPG']
+
 Km = st.sidebar.number_input("**Numeric value of total trip.**", min_value=0)
 EngSize = st.sidebar.number_input("**Volume of the car's engine.**", min_value=0)
 Hp = st.sidebar.number_input("**Power of Engine.**", min_value=0)
 Fuel_Consumption = st.sidebar.number_input("**Numeric value of consumption**.", min_value=0)
 Age = st.sidebar.number_input("**Age of the car**.", min_value=0)
-Fiat = st.sidebar.number_input("**Input 1 if car is :red[Fiat] else Keep it as :blue[0].**", min_value=0)
-Ford = st.sidebar.number_input("**Input 1 if car is :red[Ford] else Keep it as :blue[0].**", min_value=0)
-Renault = st.sidebar.number_input("**Input 1 if car is :red[Renault] else Keep it as :blue[0].**", min_value=0)
-Toyota = st.sidebar.number_input("**Input 1 if car is :red[Toyota] else Keep it as :blue[0].**", min_value=0)
-Volkswagen = st.sidebar.number_input("**Input 1 if car is :red[VW] else Keep it as :blue[0].**", min_value=0)
-Manuel = st.sidebar.number_input("**Input 1 if car is :red[Manuel Gear] else Keep it as :blue[0].**", min_value=0)
-Automatic = st.sidebar.number_input("**Input 1 if car is :red[Automatic Gear] else Keep it as :blue[0].**", min_value=0)
-Semi_Automatic = st.sidebar.number_input("**Input 1 if car is :red[Semi-Auto Gear] else Keep it as :blue[0].**", min_value=0)
-Benzin = st.sidebar.number_input("**Input 1 if car fuel is :red[Benzin] else Keep it as :blue[0].**", min_value=0)
-Diesel = st.sidebar.number_input("**Input 1 if car fuel is :red[Diesel] else Keep it as :blue[0].**", min_value=0)
-Hybrid = st.sidebar.number_input("**Input 1 if car fuel is :red[Hybrid] else Keep it as :blue[0].**", min_value=0)
-Benzin_LPG = st.sidebar.number_input("**Input 1 if car fuel is :red[Benzin&LPG] else Keep it as :blue[0].**", min_value=0)
 
+Fiat = st.sidebar.selectbox("Car Make (Fiat)", [0, 1])
+Ford = st.sidebar.selectbox("Car Make (Ford)", [0, 1])
+Renault = st.sidebar.selectbox("Car Make (Renault)", [0, 1])
+Toyota = st.sidebar.selectbox("Car Make (Toyota)", [0, 1])
+Volkswagen = st.sidebar.selectbox("Car Make (Volkswagen)", [0, 1])
+
+Manuel = st.sidebar.selectbox("Gear Type (Manuel)", [0, 1])
+Automatic = st.sidebar.selectbox("Gear Type (Automatic)", [0, 1])
+Semi_Automatic = st.sidebar.selectbox("Gear Type (Semi-Auto)", [0, 1])
+
+fuel_type = st.sidebar.selectbox("Fuel Type", fuel_options)
+Benzin = 1 if fuel_type == "Benzin" else 0
+Diesel = 1 if fuel_type == "Diesel" else 0
+Hybrid = 1 if fuel_type == "Hybrid" else 0
+Benzin_LPG = 1 if fuel_type == "Benzin&LPG" else 0
 
 #---------------------------------------------------------------------------------------------------------------------
 
